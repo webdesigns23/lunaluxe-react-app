@@ -12,18 +12,14 @@ import NavBar from './components/NavBar';
 export default function App() {
   return (
     <>
-       <BrowserRouter>
-      <NavBar /> {/* Always visible */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/destinations" element={<Destinations />}>
-          <Route index element={<DestinationList />} />
-          <Route path=":id" element={<Excursions />} />
-        </Route>
-        <Route path="/destinations/:id/excursions/:destinationId" element={<ExcursionCard />} />
-        <Route path="/expedition_planner" element={<ExpPlanner />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path ="/destinations" element={<Destinations />} />
+          <Route Path ="/expedition_planner" element={<ExpPlanner/>} />
+        </Routes>
+      
+      </BrowserRouter>
     </>
   )
 }

@@ -5,11 +5,11 @@ export default function NavBar() {
   
 	return (
     <nav className="navbar">
-		<ul className="nav-links">
-			<NavLink to="/">Home</NavLink>      
-			<NavLink to="/destinations">Destinations</NavLink>   
-			<NavLink to="/expedition_planner">Expedition Planner</NavLink>  
-		</ul>
+      <ul className="nav-links">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/destinations">Destinations</NavLink>
+        <NavLink to="/expedition_planner">Expedition Planner</NavLink>
+      </ul>
     </nav>
   );
 }
