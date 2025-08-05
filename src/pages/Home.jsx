@@ -1,11 +1,13 @@
 import React from "react";
+import NavBar from '../components/NavBar'
+
 
 export default function Home() {
-  return (
-    <header>
-      <h1>
-        Home Page
-      </h1>
-    </header>
+    return (
+    <>
+      <main>
+        <h1>LunaLuxe</h1>
+      </main>
+    </>
   );
 }
