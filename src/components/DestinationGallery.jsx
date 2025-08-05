@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DestinationGallery() {
+export default function DestinationList() {
   return (
     <header>
       <h1>

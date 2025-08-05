@@ -5,7 +5,7 @@ export default function DestinationCard() {
   return (
     <header>
       <h1>
-        Destination Card
+        LunaLuxe Space Travel
       </h1>
     </header>
   );

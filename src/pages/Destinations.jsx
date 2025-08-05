@@ -1,55 +1,45 @@
-import React, { useEffect, useState } from "react";
-import DestinationGallery from "../components/DestinationGallery";
-import DestinationCard from "../components/DestinationCard";
-
+import { useState, useEffect } from 'react';
+import DestinationGallery from '../components/DestinationGallery';
+import DestinationCard from '../components/DestinationCard';
 
 export default function Destinations() {
 
-  const [planets, setPlanets] = useState([])
-  const [selectPlanet, setSelectPlanet] = useState(null)
-  cosnt[isLoading, setIsLoading] = useState(true)
+  const [planets, setPlanets] = useState([]);
+  const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  //fetch planet info for on click display
   useEffect(() => {
-    fetch(`https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true`)
+    fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true")
       .then(response => {
-        if (response.ok) {
+        if(response.ok) {
           return response.json()
         } else {
           console.log("fetch request failed")
         }
       })
       .then(data => setPlanets(data.bodies))
-      .catch(error => console.error("Error loading plants", error));
+      .catch(error => console.error("Error loading planets", error));
   }, []);
 
-  //handle image select
-  function handleSelect(id) {
-    setIsLoading(true);
+  const handleSelect = (id) => {
+    setLoading(true);
     fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          console.log("fetch request failed")
-        }
-      })
+      .then(res => res.json())
       .then(data => {
-        setSelectPlanet(data);
-        setIsLoading(false);
+        setSelectedPlanet(data);
+        setLoading(false);
       })
       .catch(error => {
         console.error("Error loading planet info", error);
-        setIsLoading(false);
+        setLoading(false);
       });
   };
 
   return (
-    <>
-      <h1>Which destination speaks to you?</h1>
+    <div>
+      <h1>Choose Your Destination</h1>
       <DestinationGallery planets={planets} onSelect={handleSelect} />
-      {loading ? <p>Loading planet info...</p>: null}
-      {selectPlanet ? <DestinationCard selectplanet={selectPlanet} />: null}
-    </>
+      {selectedPlanet ? <DestinationCard planet={selectedPlanet} /> : null}
+    </div>
   );
 }
