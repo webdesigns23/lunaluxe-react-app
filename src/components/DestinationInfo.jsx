@@ -1,11 +1,11 @@
 import React from "react";
 
 
-export default function DestinationCard() {
+export default function DestinationInfo() {
   return (
     <header>
       <h1>
-        Destination Card
+        Destination Information
       </h1>
     </header>
   );
