@@ -1,41 +1,33 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 
-// // destination planet data
-// import destinations from "../data/destinations";
-// console.log(destinations);
+// destination planet data
+import destinations from "../data/destinations";
 
 export default function DestinationCarousel() {
 	const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
-	
+
+  const displayDestinations = destinations.map((destination) => (
+	<div key={destination.name}>
+		<iframe 
+			title={destination.name} 
+			style={{width: "90%", height: "500px"}} 
+			src={destination.embedUrl} alt={destination.alt}>
+		</iframe>
+		<h2>{destination.name}</h2>
+	</div>
+  ))
 
 
   return (
 	<Slider {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
+		{displayDestinations}  
     </Slider>
   );
 }
