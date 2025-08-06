@@ -1,45 +1,53 @@
-import { useState, useEffect } from 'react';
-import DestinationGallery from '../components/DestinationGallery';
-
+// import { useState, useEffect } from 'react';
+// import DestinationGallery from '../components/DestinationGallery';
+import DestinationCarousel from '../components/DestinationCarousel';
 
 export default function Destinations() {
 
-  const [planets, setPlanets] = useState([]);
-  const [selectedPlanet, setSelectedPlanet] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [planets, setPlanets] = useState([]);
+  // const [selectedPlanet, setSelectedPlanet] = useState(null);
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true")
-      .then(response => {
-        if(response.ok) {
-          return response.json()
-        } else {
-          console.log("fetch request failed")
-        }
-      })
-      .then(data => setPlanets(data.bodies))
-      .catch(error => console.error("Error loading planets", error));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true")
+  //     .then(response => {
+  //       if(response.ok) {
+  //         return response.json()
+  //       } else {
+  //         console.log("fetch request failed")
+  //       }
+  //     })
+  //     .then(data => setPlanets(data.bodies))
+  //     .catch(error => console.error("Error loading planets", error));
+  // }, []);
 
-  const handleSelect = (id) => {
-    setLoading(true);
-    fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        setSelectedPlanet(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error loading planet info", error);
-        setLoading(false);
-      });
-  };
+  // const handleSelect = (id) => {
+  //   setLoading(true);
+  //   fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setSelectedPlanet(data);
+  //       setLoading(false);
+  //     })
+  //     .catch(error => {
+  //       console.error("Error loading planet info", error);
+  //       setLoading(false);
+  //     });
+  // };
+
+//   return (
+//     <div>
+//       <h1>Scout Out Some Stellar Cosmic Sanctuaries</h1>
+//       <DestinationGallery planets={planets} handleSelect={handleSelect}/>
+//       <Outlet /> {/*to pass state/context to nested component*/}
+//     </div>
+//   );
+// }
 
   return (
     <div>
       <h1>Scout Out Some Stellar Cosmic Sanctuaries</h1>
-      <DestinationGallery planets={planets} handleSelect={handleSelect}/>
-      <Outlet /> {/*to pass state/context to nested component*/}
+      <DestinationCarousel />      
     </div>
   );
 }

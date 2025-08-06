@@ -1,4 +1,4 @@
-const planetCarousel = [
+const destinations = [
 // {
 //     name: "Moon",
 //     embedUrl: "https://sketchfab.com/3d-models/the-moon-sharp-1bc61d056d934523a3de63d713ce3377/embed",
@@ -7,10 +7,12 @@ const planetCarousel = [
 	{
     name: "Sun",
     embedUrl: "https://sketchfab.com/3d-models/the-sun-0d28aa65eb174d948c2716d73e8fd3bd/embed",
+    alt: "interactive 3D model of the sun presented by sketchfab"
   },
 	{
     name: "Mercury",
     embedUrl: "https://sketchfab.com/3d-models/mercury-enhanced-color-5931d130a5204419b3323dd41f3506b1/embed",
+    alt: "interactive 3D model of the mercury presented by sketchfab"
   },
    {
     name: "Venus",
