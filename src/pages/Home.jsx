@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <header>
       <h1>
-        Home Page
+        LunaLuxe Space Travel
       </h1>
     </header>
   );

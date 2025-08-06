@@ -1,13 +1,26 @@
-import { useState } from 'react'
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css'
+import NavBar from './components/NavBar';
+import Home from './pages/Home'
+import Destinations from './pages/Destinations'
+import DestinationInfo from './components/DestinationInfo';
+import ExpPlanner from './pages/ExpPlanner'
 
-function App() {
 
+export default function App() {
   return (
     <>
-      <h1>Lunaluxe Space Travel</h1>
+      <BrowserRouter>
+      <NavBar/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path ="/destinations" element={<Destinations />} >
+            <Route path=":id" element={<DestinationInfo />} />
+          </Route>
+          <Route path="/expedition_planner" element={<ExpPlanner />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
 
-export default App
