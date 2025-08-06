@@ -6,6 +6,9 @@ import Destinations from './pages/Destinations'
 import DestinationInfo from './components/DestinationInfo';
 import ExpPlanner from './pages/ExpPlanner'
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 export default function App() {
   return (

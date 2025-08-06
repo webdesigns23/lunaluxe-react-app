@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import Slider from "react-slick";
+
+// // destination planet data
+// import destinations from "../data/destinations";
+// console.log(destinations);
+
+export default function DestinationCarousel() {
+	const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+	
 
 
-export default function DestinationInfo() {
   return (
-	<header>
-	  <h1>
-		Destination Information
-	  </h1>
-	</header>
+	<Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider>
   );
 }
