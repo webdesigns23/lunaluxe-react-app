@@ -23,7 +23,7 @@ export default function Destinations() {
 
   return (
     <div>
-      <h1>Scout Out Some Stellar Cosmic Sanctuaries</h1>
+      <h1>Uncover the Secrets of our Stellar Getaways</h1>
       <DestinationCarousel onSelect={handleBodySelect}/>
       <Outlet context={{selectedBody, loading}} />   
     </div>

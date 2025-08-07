@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import "../styles/DestinationCarousel.css"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // destination planet data
 import destinations from "../data/destinations";
@@ -41,7 +41,7 @@ export default function DestinationCarousel({onSelect}) {
               	alt={destination.alt}
               	style={{ width: "90%", height: "400px", objectFit: "cover" }}
             	/>
-				<button className="explore-button" onClick={() => handleClick(destination.id)}>Start Exploring</button>
+				<button className="explore-button" onClick={() => handleClick(destination.id)}>Expolore {destination.name}</button>
 			</div>
 		</div>
 		))}
