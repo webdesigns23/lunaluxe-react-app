@@ -6,11 +6,15 @@ export default function BodyInfo() {
 
   const [selectedBody, setSelectedBody] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [apodData, setApodData] = useState(null);
 
-
-  //fetch info based on id
-  useEffect(() => {
+  //need to move to .env file!
+  const NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
+  
+  useEffect(() => {    
     setLoading(true);
+
+      //fetch body info based on id
       fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
         .then(res => res.json())
         .then(data => {
@@ -21,31 +25,58 @@ export default function BodyInfo() {
           console.error("Error launching info", error);
           setLoading(false);
         });
+
+      //fetch nasa APOD data
+      fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`)
+      .then((res) => res.json())
+        .then((data) => {
+          setApodData(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching NASA APOD", error);
+        });
+  
   }, [id]);
- 
+
+
   if (loading) return <p>Launching info...</p>;
   if (!selectedBody) return <p>No info found.</p>;
- 
-
 
   return (
-  <div id="target-body" className="body-details">
-      <h2>{selectedBody.englishName}</h2>
-      <p>Gravity:{selectedBody.gravity} m/s²</p>
+    <div id="target-body" >
+      <section className="body-details">
+        <h2>{selectedBody.englishName}</h2>
+        <p>Gravity:{selectedBody.gravity} m/s²</p>
 
-      {selectedBody.avgTemp > 0 && (
-      <p>
-        Temperature: 
-        {((selectedBody.avgTemp - 273.15) * 9/5 + 32).toFixed(1)} Fahrenheit
-      </p>
-      )}
-      
-      <p>Radius: {selectedBody.meanRadius} km</p>
-      <p>Moons: {selectedBody.moons?.length || 0}</p>
-      <p>Orbital Litter: 
-        {selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
-      </p>
-      <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
+        {selectedBody.avgTemp > 0 && (
+        <p>
+          Temperature: 
+          {((selectedBody.avgTemp - 273.15) * 9/5 + 32).toFixed(1)} Fahrenheit
+        </p>
+        )}
+        
+        <p>Radius: {selectedBody.meanRadius} km</p>
+        <p>Moons: {selectedBody.moons?.length || 0}</p>
+        <p>Orbital Litter: 
+          {selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
+        </p>
+        <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
+       </section> 
+       
+       <section className="nasa-apod">
+        <h3>What {selectedBody.englishName} has to offer:</h3>
+        <p>Title: {apodData.title}</p>
+        <p>Date:{apodData.date}</p>
+        {apodData.media_type === "image" && (
+            <img
+              src={apodData.url}
+              alt={apodData.title}
+              style={{ maxWidth: "100%", borderRadius: "12px" }}
+            />
+        )}
+        <p style={{ marginTop: "1rem" }}>{apodData.explanation}</p>
+       </section>
     </div>
+    
   );
 }
