@@ -41,7 +41,7 @@ export default function VesselCarousel({onSelect}) {
               	alt={v.alt}
               	style={{ width: "90%", height: "400px", objectFit: "cover" }}
             	/>
-				<button className="explore-button" onClick={() => handleClick(v.id)}>Expolore </button>
+				<button className="explore-button" onClick={() => handleClick(v.id)}>Vessel Stats</button>
 			</div>
 		</div>
 		))}
