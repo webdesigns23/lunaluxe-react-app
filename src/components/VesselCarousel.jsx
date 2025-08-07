@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import "../styles/DestinationCarousel.css"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // destination planet data
-import destinations from "../data/destinations";
+import vessels from "../data/vessels";
 
 
 export default function VesselCarousel({onSelect}) {
-	//set up navigate
-	const navigate = useNavigate();
+	// //set up navigate
+	// const navigate = useNavigate();
 
 	const settings = {
     dots: true,
@@ -22,17 +22,17 @@ export default function VesselCarousel({onSelect}) {
 	centerPadding: "28%",
   };
 
-  //new route for click
-  function handleClick(id) {
-	onSelect(id);
-	navigate(`/vessels/${id}`);
-  }
+//   //new route for click
+//   function handleClick(id) {
+// 	onSelect(id);
+// 	navigate(`/vessels/${id}`);
+//   }
 
 
   return (
 	<Slider {...settings}>
 		{vessels.map((v) => (
-		<div className="main-slide" key={v.name}>
+		<div className="main-slide" key={v.id}>
 			<div className="inner-slide">
 				<h2 className="destination-name"> {v.name}</h2>
 				<img
@@ -41,7 +41,7 @@ export default function VesselCarousel({onSelect}) {
               	alt={v.alt}
               	style={{ width: "90%", height: "400px", objectFit: "cover" }}
             	/>
-				<button className="explore-button" onClick={() => handleClick(v.id)}>Expolore {v.name}</button>
+				<button className="explore-button" onClick={() => handleClick(v.id)}>Expolore </button>
 			</div>
 		</div>
 		))}

@@ -9,7 +9,7 @@ export default function SpaceVessels() {
 
   const handleVesselSelect = (id) => {
 	setLoading(true);
-	fetch(`https://swapi.info/api/starships`)
+	fetch(`https://swapi.info/api/starships/${id}`)
 	  .then(res => res.json())
 	  .then(data => {
 		setSelectedVessel(data);
@@ -23,9 +23,19 @@ export default function SpaceVessels() {
 
   return (
 	<div>
-	  <h1>Uncover the Secrets of our Stellar Getaways</h1>
-	  <VesselCarousel onSelect={handleVesselSelect}/>
-	  <Outlet context={{selectedVessel, loading}} />   
+	  <h1>Our Vessels</h1>
+	  <VesselCarousel />
+	  {/* <Outlet context={{selectedVessel, loading}} />    */}
 	</div>
   );
 }
+
+
+//   return (
+// 	<div>
+// 	  <h1>Uncover the Secrets of our Stellar Getaways</h1>
+// 	  <VesselCarousel onSelect={handleVesselSelect}/>
+// 	  <Outlet context={{selectedVessel, loading}} />   
+// 	</div>
+//   );
+// }

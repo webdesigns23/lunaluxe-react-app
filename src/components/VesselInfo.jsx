@@ -2,10 +2,10 @@ import React from "react";
 import { useOutletContext} from "react-router-dom";
 
 export default function VesselInfo() {
-  const { selectedBody, loading } = useOutletContext();
+//   const { selectedBody, loading } = useOutletContext();
 
-  if (loading) return <p>Launching info...</p>;
-  if (!selectedBody) return <p>No info found.</p>;
+//   if (loading) return <p>Launching info...</p>;
+//   if (!selectedBody) return <p>No info found.</p>;
 
   return (
   <div className="vessel-details">

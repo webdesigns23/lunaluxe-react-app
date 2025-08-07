@@ -6,6 +6,7 @@ import Destinations from './pages/Destinations'
 import BodyInfo from './components/BodyInfo';
 import ExpPlanner from './pages/ExpPlanner'
 import SpaceVessels from './pages/SpaceVessels'
+import VesselInfo from './components/VesselInfo';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
