@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
-import "../styles/DestinationCarousel.css"
+import "../styles/Carousel.css"
 import { useNavigate } from "react-router-dom";
 
 // destination planet data
@@ -8,7 +8,7 @@ import destinations from "../data/destinations";
 
 
 export default function DestinationCarousel({onSelect}) {
-	//set up navigate
+
 	const navigate = useNavigate();
 
 	const settings = {
