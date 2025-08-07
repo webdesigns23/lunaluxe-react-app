@@ -3,13 +3,14 @@ import { TripContext } from "../components/TripContext";
 
 export default function ExpPlanner() {
 
-  const {selectedBody, setSelectedBody} = useContext(TripContext);
+  const {selectedBody, setSelectedBody, selectedVessel, setSelectedVessel} = useContext(TripContext);
 
+  //Destination and Vessels State:
   const [ bodies, setBodies] = useState([])
-  // const [ allVessles, setAllVessels] = useState([])
+  const [ vessels, setVessels] = useState([])
   const [ launching, setLaunching] = useState(true)
   
-  //need fetch to get all body info and will add a .filter for body
+  //Fetch Destinations
   useEffect(() => {
     fetch("https://api.le-systeme-solaire.net/rest/bodies/")
         .then(res => res.json())
@@ -32,21 +33,23 @@ export default function ExpPlanner() {
   }
 
 
-  // //All Vessel info
-  // useEffect(() => {
-  //   fetch("https://swapi.info/api/starships")
-  //     .then(response => {
-  //       if(response.ok) {
-  //         return response.json()
-  //       } else {
-  //         console.log("fetch request failed")
-  //       }
-  //     })
-  //     .then(data => setAllVessels(data.bodies))
-
-
-  //     .catch(error => console.error("Error launching space vessels", error));
-  // }, []);
+  //Fetch Vessels
+  useEffect(() => {
+    fetch("https://swapi.info/api/starships")
+      .then(response => {
+        if(response.ok) {
+          return response.json()
+        } else {
+          console.log("fetch request failed")
+        }
+      })
+      .then((data) => {
+        const list = Array.isArray(data) ? data : (data?.results || []);
+        setVessels(list);
+      })
+      .catch((error) => console.error("Error launching space vessels", error));
+      setLaunching(false);
+  }, []);
 
 
    if (launching) return <p>Launching your next adventure...</p>;
