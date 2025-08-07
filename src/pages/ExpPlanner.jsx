@@ -8,7 +8,11 @@ export default function ExpPlanner() {
   //Destination and Vessels State:
   const [ bodies, setBodies] = useState([])
   const [ vessels, setVessels] = useState([])
-  const [ launching, setLaunching] = useState(true)
+
+  //Loading
+  const [loadingBodies, setLoadingBodies] = useState(true);
+  const [loadingVessels, setLoadingVessels] = useState(true);
+  const anyLoading = loadingBodies || loadingVessels;
   
   //Fetch Destinations
   useEffect(() => {
@@ -21,14 +25,14 @@ export default function ExpPlanner() {
         })
         .catch(error => {
           console.error("Error launching info", error);
-          setLaunching(false);
+          setLoadingBodies(false);
         });
   }, []);
 
   //handle select destination
-  function handleSelect(event) {
+  function handleDestinationSelect(event) {
     const selectedId = event.target.value;
-    const selected = bodies.find((body) => body.id == selectedId);
+    const selected = bodies.find((body) => body.id == selectedId || null);
     setSelectedBody(selected);
   }
 
@@ -48,20 +52,34 @@ export default function ExpPlanner() {
         setVessels(list);
       })
       .catch((error) => console.error("Error launching space vessels", error));
-      setLaunching(false);
+      setLoadingVessels(false);
   }, []);
 
 
-   if (launching) return <p>Launching your next adventure...</p>;
+  //handle select vessel
+  function handleVesselSelect(event) {
+    const name = event.target.value;
+    const ship = vessels.find((v) => v.name == name || null);
+    setSelectedVessel(ship);
+  }
+
+
+
+
+
+
+   if (anyLoading) return <p>Launching your next adventure...</p>;
 
   
   return (
     <>
       <h1>Expedition planner</h1>
+
+      {/* Destination dropdown */}
       <div>
         <label htmlFor="destination-select">Choose a destination:</label>
         <select id="destination-select" 
-        onChange={handleSelect} value={selectedBody?.id || ""}>
+        onChange={handleDestinationSelect} value={selectedBody?.id || ""}>
           <option value="">Select a destination</option>
           {bodies.map((body) => (
             <option key={body.id} value={body.id}>
@@ -70,7 +88,8 @@ export default function ExpPlanner() {
           ))}
         </select>
       </div>
-
+      
+      {/* Destination info */}
       {selectedBody && (
         <div>
           <h2>PLACEHOLDER - Variables needed for calculations:</h2>
@@ -85,6 +104,33 @@ export default function ExpPlanner() {
           <p>distance from earth: {Math.abs(selectedBody.semimajorAxis - 149598023).toLocaleString()} km</p>
         </div>
       )}
+
+      {/* Vessel Dropdown */}
+      <div style={{ marginBottom: 16 }}>
+        <label htmlFor="vessel-select">Choose a vessel:&nbsp;</label>
+        <select
+          id="vessel-select"
+          onChange={handleVesselSelect}
+          value={selectedVessel?.name || ""}
+        >
+          <option value="">Select a vessel</option>
+          {vessels.map((v) => (
+            <option key={v.name} value={v.name}>
+              {v.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Vessel info */}
+      {selectedVessel && (
+        <div>
+          <p>{selectedVessel.name}</p>
+          <p>{selectedVessel.max_atmosphering_speed}</p>
+        </div>
+      )}
+     
+
     </>
   );
 }
