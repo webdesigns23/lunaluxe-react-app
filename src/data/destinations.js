@@ -41,7 +41,7 @@ const destinations = [
   {
     id: "jupiter",
     name: "Jupiter",
-    image: "src/assets/planets/jupiter2.PNG",
+    image: "src/assets/planets/jupiter1.PNG",
     embedUrl: "https://sketchfab.com/3d-models/jupiter-c5275eb96af245e4a8453837ac728a62/embed",
   },
   {

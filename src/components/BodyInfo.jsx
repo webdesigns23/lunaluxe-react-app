@@ -13,11 +13,9 @@ export default function BodyInfo() {
       <p>Gravity:{selectedBody.gravity} m/s²</p>
       <p>Radius: {selectedBody.meanRadius} km</p>
       <p>Moons: {selectedBody.moons?.length || 0}</p>
-      <p>Orbital Litter:</p>
-        <ul>
-          {selectedBody.moons.map((moon, index) => 
-          (<li key={index}>{moon.moon}</li>))}
-        </ul>
+      <p>Orbital Litter: 
+        {selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
+      </p>
       <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
     </div>
   );

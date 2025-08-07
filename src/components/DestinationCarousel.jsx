@@ -13,7 +13,8 @@ export default function DestinationCarousel({onSelect}) {
 
 	const settings = {
     dots: true,
-    infinite: true,
+	infinite: true,
+	accessibility: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -33,14 +34,14 @@ export default function DestinationCarousel({onSelect}) {
 		{destinations.map((destination) => (
 		<div className="main-slide" key={destination.name}>
 			<div className="inner-slide">
+				<h2 className="destination-name"> {destination.name}</h2>
 				<img
               	className="card-image"
               	src={destination.image}
               	alt={destination.alt}
               	style={{ width: "90%", height: "400px", objectFit: "cover" }}
             	/>
-				<h2 className="destination-name"> {destination.name}</h2>
-				<button onClick={() => handleClick(destination.id)}>Start Exploring</button>
+				<button className="explore-button" onClick={() => handleClick(destination.id)}>Start Exploring</button>
 			</div>
 		</div>
 		))}
