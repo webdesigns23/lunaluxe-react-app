@@ -1,16 +1,20 @@
 import React from "react";
+import { useOutletContext} from "react-router-dom";
 
+export default function BodyInfo() {
+  const { selectedBody, loading } = useOutletContext();
 
-export default function BodyInfo({planet}) {
+  if (loading) return <p>Launching info...</p>;
+  if (!selectedBody) return <p>No info found.</p>;
 
   return (
   <div className="body-details">
-      <h2>{planet.englishName}</h2>
-      <p>Gravity:{planet.gravity} m/s²</p>
-      <p>Radius: {planet.meanRadius} km</p>
-      <p>Moons: {planet.moons?.length || 0}</p>
-      {/* <p>Orbital Litter: {planet.moons}</p> */}
-      <p>Distance from Sun: {planet.semimajorAxis.toLocaleString()} km</p>
+      <h2>{selectedBody.englishName}</h2>
+      <p>Gravity:{selectedBody.gravity} m/s²</p>
+      <p>Radius: {selectedBody.meanRadius} km</p>
+      <p>Moons: {selectedBody.moons?.length || 0}</p>
+      {/* <p>Orbital Litter: {selectedBody.moons}</p> */}
+      <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
     </div>
   );
 }
