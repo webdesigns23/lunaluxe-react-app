@@ -8,8 +8,6 @@ export default function ExpPlanner() {
   const [ bodies, setBodies] = useState([])
   // const [ allVessles, setAllVessels] = useState([])
   const [ launching, setLaunching] = useState(true)
-
-
   
   //need fetch to get all body info and will add a .filter for body
   useEffect(() => {
@@ -19,13 +17,19 @@ export default function ExpPlanner() {
           const planets = data.bodies.filter((body) => body.isPlanet);
           setBodies(planets);
           setLaunching(false);
-          console.log(planets)//to check
         })
         .catch(error => {
           console.error("Error launching info", error);
           setLaunching(false);
         });
   }, []);
+
+  //handle select destination
+  function handleSelect(event) {
+    const selectedId = event.target.value;
+    const selected = bodies.find((body) => body.id == selectedId);
+    setSelectedBody(selected);
+  }
 
 
   // //All Vessel info
@@ -49,11 +53,36 @@ export default function ExpPlanner() {
 
   
   return (
-    <header>
-      <h1>
-        Expedition planner
-      </h1>
-    </header>
+    <>
+      <h1>Expedition planner</h1>
+      <div>
+        <label htmlFor="destination-select">Choose a destination:</label>
+        <select id="destination-select" 
+        onChange={handleSelect} value={selectedBody?.id || ""}>
+          <option value="">Select a destination</option>
+          {bodies.map((body) => (
+            <option key={body.id} value={body.id}>
+            {body.englishName}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {selectedBody && (
+        <div>
+          <h2>PLACEHOLDER - Variables needed for calculations:</h2>
+          <p>{selectedBody.englishName}</p>
+           {selectedBody.avgTemp > 0 && (
+        <p>
+          Temperature: 
+          {((selectedBody.avgTemp - 273.15) * 9/5 + 32).toFixed(1)} Fahrenheit
+        </p>
+        )}
+          <p>{selectedBody.gravity}</p>
+          <p>distance from earth: {Math.abs(selectedBody.semimajorAxis - 149598023).toLocaleString()} km</p>
+        </div>
+      )}
+    </>
   );
 }
 
