@@ -23,19 +23,9 @@ export default function SpaceVessels() {
 
   return (
 	<div>
-	  <h1>Our Vessels</h1>
-	  <VesselCarousel />
-	  {/* <Outlet context={{selectedVessel, loading}} />    */}
+	  <h1>Your Ride to the Unknown Awaits</h1>
+	  <VesselCarousel onSelect={handleVesselSelect}/>
+	  <Outlet context={{selectedVessel, loading}} />   
 	</div>
   );
 }
-
-
-//   return (
-// 	<div>
-// 	  <h1>Uncover the Secrets of our Stellar Getaways</h1>
-// 	  <VesselCarousel onSelect={handleVesselSelect}/>
-// 	  <Outlet context={{selectedVessel, loading}} />   
-// 	</div>
-//   );
-// }

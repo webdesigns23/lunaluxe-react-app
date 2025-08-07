@@ -13,11 +13,6 @@ const vessels = [
     embedUrl: "https://sketchfab.com/3d-models/millennium-falcon-2c0783d083e44b959c691682b4cb1f16/embed",
     alt: "interactive 3D model of the millenium falcon presented by sketchfab",
   },
-//    {
-//     id: 11,
-//     image: "src/assets/planets/moon1.PNG",
-//     embedUrl: "",
-//   },
    {
     id: 12,
     name: "x-wing",
@@ -32,21 +27,16 @@ const vessels = [
     embedUrl: "https://sketchfab.com/3d-models/tie-5bcaa60ed5ce4a51b4233aed418f2280/embed",
     alt: "interactive 3D model of the tie fighter presented by sketchfab",
   },
-//    {
-//     id: 22,
-//     image: "src/assets/planets/moon1.PNG",
-//     embedUrl: "",
-//   },
-//    {
-//     id: 49,
-//     image: "src/assets/planets/moon1.PNG",
-//     embedUrl: "",
-//   },
-//    {
-//     id: 58,
-//     image: "src/assets/planets/moon1.PNG",
-//     embedUrl: "",
-//   },
+   {
+    id: 22,
+    image: "src/assets/vessels/imperial_shuttle.PNG",
+    embedUrl: "https://sketchfab.com/3d-models/imperial-lambda-class-shuttle-ecd88edc4e5f42cc977c265316ed7015/embed",
+  },
+   {
+    id: 58,
+    image: "src/assets/vessels/solar_sailer.PNG",
+    embedUrl: "https://sketchfab.com/3d-models/solar-sailer-573a4cd70b014e428036b2d803271187/embed",
+  },
 ];
 
 export default vessels

@@ -2,29 +2,22 @@ import React from "react";
 import { useOutletContext} from "react-router-dom";
 
 export default function VesselInfo() {
-//   const { selectedBody, loading } = useOutletContext();
+  const { selectedVessel, loading } = useOutletContext();
 
-//   if (loading) return <p>Launching info...</p>;
-//   if (!selectedBody) return <p>No info found.</p>;
+  if (loading) return <p>Launching info...</p>;
+  if (!selectedVessel) return <p>No info found.</p>;
+
 
   return (
   <div className="vessel-details">
-	  {/* <h2>{selectedBody.englishName}</h2>
-	  <p>Gravity:{selectedBody.gravity} m/s²</p>
+	<h2>{selectedVessel.name}</h2>
+	<p>Max Speed:{selectedVessel.max_atmosphering_speed}</p>
 
-	  {selectedBody.avgTemp > 0 && (
-	  <p>
-		Temperature: 
-		{((selectedBody.avgTemp - 273.15) * 9/5 + 32).toFixed(1)} Fahrenheit
-	  </p>
-	  )}
-	  
-	  <p>Radius: {selectedBody.meanRadius} km</p>
-	  <p>Moons: {selectedBody.moons?.length || 0}</p>
-	  <p>Orbital Litter: 
-		{selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
-	  </p>
-	  <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p> */}
+	<p>Passengers Capacity: {parseInt(selectedVessel.passengers)}</p>
+	<p>Crew Capacity: {parseInt(selectedVessel.crew)}</p>
+
+	<p>Hyperdrive Rating: {selectedVessel.hyperdrive_rating}</p>
+	<p>Ship Class: {selectedVessel.starship_class}</p>
 	</div>
   );
 }

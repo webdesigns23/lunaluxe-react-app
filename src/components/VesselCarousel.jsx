@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import "../styles/DestinationCarousel.css"
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // destination planet data
 import vessels from "../data/vessels";
 
 
 export default function VesselCarousel({onSelect}) {
-	// //set up navigate
-	// const navigate = useNavigate();
+	//set up navigate
+	const navigate = useNavigate();
 
 	const settings = {
     dots: true,
@@ -22,11 +22,11 @@ export default function VesselCarousel({onSelect}) {
 	centerPadding: "28%",
   };
 
-//   //new route for click
-//   function handleClick(id) {
-// 	onSelect(id);
-// 	navigate(`/vessels/${id}`);
-//   }
+  //new route for click
+  function handleClick(id) {
+	onSelect(id);
+	navigate(`/vessels/${id}`);
+  }
 
 
   return (
