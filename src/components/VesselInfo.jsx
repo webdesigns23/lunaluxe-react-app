@@ -29,7 +29,7 @@ export default function VesselInfo() {
   return (
   <div id="target-vessels" className="vessel-details">
 	<h2>{selectedVessel.name}</h2>
-	<p>Max Speed:{selectedVessel.max_atmosphering_speed}</p>
+	<p>Max Speed:{selectedVessel.max_atmosphering_speed} km/h</p>
 
 	<p>Passengers Capacity: {parseInt(selectedVessel.passengers)}</p>
 	<p>Crew Capacity: {parseInt(selectedVessel.crew)}</p>

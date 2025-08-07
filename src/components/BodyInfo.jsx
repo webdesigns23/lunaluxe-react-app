@@ -69,7 +69,13 @@ export default function BodyInfo() {
         <p>Orbital Litter: 
           {selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
         </p>
-        <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
+        <p>
+          Average Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km
+        </p>
+        <p>
+          Average Distance from Earth: {
+          selectedBody.semimajorAxis ? Math.abs(Number(selectedBody.semimajorAxis) - 149598023) : "Unknown"} km
+        </p>
        </section> 
 
        <section className="nasa-apod">

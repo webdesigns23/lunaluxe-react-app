@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ExpPlannerForm() {
+  const [destination, setDestination] = useState("");
+  const [vessel, setVessel] = useState("");
+  const [travelTime, setTravelTime] = useState(null);
+  const origin = "sun"
+  
+
+
   return (
-    <header>
-      <h1>
-        Expedition Planner Form
-      </h1>
-    </header>
+    <>
+      <h1>Plan Expedition:</h1>
+      <form className="New Expedition">
+        input type 
+      </form>
+    </>
   );
 }
 
