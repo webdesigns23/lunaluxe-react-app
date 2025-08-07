@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
+import { TripContext } from "./TripContext";
 
 //info for apod
 import destinations from "../data/destinations";
@@ -11,9 +12,14 @@ export default function BodyInfo() {
   const destination = destinations.find(d => d.id === id);
   const apodDate = destination.apodDate
 
+  //*modify to use useContext
+  const { setSelectedBody: setBodyInContext } = useContext(TripContext);
+
   const [selectedBody, setSelectedBody] = useState(null);
   const [loading, setLoading] = useState(false);
   const [apodData, setApodData] = useState(null);
+
+  
 
   //need to move to .env file!
   const NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
@@ -28,6 +34,7 @@ export default function BodyInfo() {
         .then(res => res.json())
         .then(data => {
           setSelectedBody(data);
+          setBodyInContext(data) //*save in context
           setLoading(false);
         })
         .catch(error => {
