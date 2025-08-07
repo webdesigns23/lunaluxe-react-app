@@ -1,14 +1,35 @@
-import React from "react";
-import { useOutletContext} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams} from "react-router-dom";
 
 export default function BodyInfo() {
-  const { selectedBody, loading } = useOutletContext();
+  const { id } = useParams();
+  
+  const [selectedBody, setSelectedBody] = useState(null);
+  const [loading, setLoading] = useState(false);
 
+
+  //fetch info based on id
+  useEffect(() => {
+    setLoading(true);
+      fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
+        .then(res => res.json())
+        .then(data => {
+          setSelectedBody(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error("Error launching info", error);
+          setLoading(false);
+        });
+  }, [id]);
+ 
   if (loading) return <p>Launching info...</p>;
   if (!selectedBody) return <p>No info found.</p>;
+ 
+
 
   return (
-  <div className="body-details">
+  <div id="target-section" className="body-details">
       <h2>{selectedBody.englishName}</h2>
       <p>Gravity:{selectedBody.gravity} m/s²</p>
 
