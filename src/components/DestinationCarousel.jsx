@@ -22,11 +22,12 @@ export default function DestinationCarousel({onSelect}) {
 		{destinations.map((destination) => (
 		<div className="main-slide" key={destination.name}>
 			<div className="inner-slide">
-				<iframe className="card-frame"
-					title={destination.name} 
-					style={{width: "90%", height: "400px"}} 
-					src={destination.image} alt={destination.alt}>
-				</iframe>
+				<img
+              	className="card-image"
+              	src={destination.image}
+              	alt={destination.alt}
+              	style={{ width: "90%", height: "400px", objectFit: "cover" }}
+            	/>
 				<h2 className="destination-name"> {destination.name}</h2>
 				<button onClick={() => onSelect(destination.id)}>Start Exploring</button>
 			</div>
