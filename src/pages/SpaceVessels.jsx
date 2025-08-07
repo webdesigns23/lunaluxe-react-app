@@ -1,31 +1,21 @@
 import { useState, useEffect } from 'react';
 import VesselCarousel from '../components/VesselCarousel';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 
 export default function SpaceVessels() {
-
-  const [selectedVessel, setSelectedVessel] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const handleVesselSelect = (id) => {
-	setLoading(true);
-	fetch(`https://swapi.info/api/starships/${id}`)
-	  .then(res => res.json())
-	  .then(data => {
-		setSelectedVessel(data);
-		setLoading(false);
-	  })
-	  .catch(error => {
-		console.error("Error launching info", error);
-		setLoading(false);
-	  });
-  };
+	
+	const navigate = useNavigate();
+  
+	//for vessel stats
+	const handleVesselSelect = (id) => {
+	  navigate(`/vessels/${id}`);    
+	};
 
   return (
 	<div>
 	  <h1>Your Ride to the Unknown Awaits</h1>
-	  <VesselCarousel onSelect={handleVesselSelect}/>
-	  <Outlet context={{selectedVessel, loading}} />   
+	  <VesselCarousel onVesselSelect={handleVesselSelect}/>
+	  <Outlet />   
 	</div>
   );
 }

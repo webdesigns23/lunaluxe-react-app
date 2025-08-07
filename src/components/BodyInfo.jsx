@@ -3,7 +3,7 @@ import { useParams} from "react-router-dom";
 
 export default function BodyInfo() {
   const { id } = useParams();
-  
+
   const [selectedBody, setSelectedBody] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +29,7 @@ export default function BodyInfo() {
 
 
   return (
-  <div id="target-section" className="body-details">
+  <div id="target-body" className="body-details">
       <h2>{selectedBody.englishName}</h2>
       <p>Gravity:{selectedBody.gravity} m/s²</p>
 
