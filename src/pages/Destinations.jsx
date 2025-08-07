@@ -1,12 +1,11 @@
-// import { useState, useEffect } from 'react';
-// import DestinationGallery from '../components/DestinationGallery';
+import { useState, useEffect } from 'react';
 import DestinationCarousel from '../components/DestinationCarousel';
+import BodyInfo from '../components/BodyInfo';
 
 export default function Destinations() {
 
-  // const [planets, setPlanets] = useState([]);
-  // const [selectedPlanet, setSelectedPlanet] = useState(null);
-  // const [loading, setLoading] = useState(false);
+  const [selectedBody, setSelectedBody] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // useEffect(() => {
   //   fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true")
@@ -21,33 +20,27 @@ export default function Destinations() {
   //     .catch(error => console.error("Error loading planets", error));
   // }, []);
 
-  // const handleSelect = (id) => {
-  //   setLoading(true);
-  //   fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setSelectedPlanet(data);
-  //       setLoading(false);
-  //     })
-  //     .catch(error => {
-  //       console.error("Error loading planet info", error);
-  //       setLoading(false);
-  //     });
-  // };
-
-//   return (
-//     <div>
-//       <h1>Scout Out Some Stellar Cosmic Sanctuaries</h1>
-//       <DestinationGallery planets={planets} handleSelect={handleSelect}/>
-//       <Outlet /> {/*to pass state/context to nested component*/}
-//     </div>
-//   );
-// }
+  const handleBodySelect = (id) => {
+    setLoading(true);
+    fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setSelectedBody(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error launching info", error);
+        setLoading(false);
+      });
+  };
 
   return (
     <div>
       <h1>Scout Out Some Stellar Cosmic Sanctuaries</h1>
-      <DestinationCarousel />      
+      <DestinationCarousel onSelect={handleBodySelect}/>
+      {selectedBody ? <BodyInfo planet={selectedBody}/> : null}
+      {/*<Outlet /> to pass state/context to nested component destination info*/}     
     </div>
   );
 }
+

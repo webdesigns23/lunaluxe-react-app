@@ -3,7 +3,7 @@ import './App.css'
 import NavBar from './components/NavBar';
 import Home from './pages/Home'
 import Destinations from './pages/Destinations'
-import DestinationInfo from './components/DestinationInfo';
+import BodyInfo from './components/BodyInfo';
 import ExpPlanner from './pages/ExpPlanner'
 
 import "slick-carousel/slick/slick.css";
@@ -18,7 +18,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path ="/destinations" element={<Destinations />} >
-            <Route path=":id" element={<DestinationInfo />} />
+            <Route path=":id" element={<BodyInfo />} />
           </Route>
           <Route path="/expedition_planner" element={<ExpPlanner />} />
         </Routes>
