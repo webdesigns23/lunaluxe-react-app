@@ -5,7 +5,7 @@ import "../styles/DestinationCarousel.css"
 // destination planet data
 import destinations from "../data/destinations";
 
-export default function DestinationCarousel() {
+export default function DestinationCarousel({onSelect}) {
 	const settings = {
     dots: true,
     infinite: true,
@@ -25,10 +25,10 @@ export default function DestinationCarousel() {
 				<iframe className="card-frame"
 					title={destination.name} 
 					style={{width: "90%", height: "400px"}} 
-					src={destination.embedUrl} alt={destination.alt}>
+					src={destination.image} alt={destination.alt}>
 				</iframe>
 				<h2 className="destination-name"> {destination.name}</h2>
-				<button>Start Exploring</button>
+				<button onClick={() => onSelect(destination.id)}>Start Exploring</button>
 			</div>
 		</div>
 		))}
