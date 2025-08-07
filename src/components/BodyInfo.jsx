@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 
+//info for apod
+import destinations from "../data/destinations";
+
 export default function BodyInfo() {
   const { id } = useParams();
+
+  //use id to look up apodDate
+  const destination = destinations.find(d => d.id === id);
+  const apodDate = destination.apodDate
 
   const [selectedBody, setSelectedBody] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -10,6 +17,8 @@ export default function BodyInfo() {
 
   //need to move to .env file!
   const NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
+  
+
   
   useEffect(() => {    
     setLoading(true);
@@ -27,7 +36,7 @@ export default function BodyInfo() {
         });
 
       //fetch nasa APOD data
-      fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`)
+      fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${apodDate}`)
       .then((res) => res.json())
         .then((data) => {
           setApodData(data);
@@ -62,7 +71,7 @@ export default function BodyInfo() {
         </p>
         <p>Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
        </section> 
-       
+
        <section className="nasa-apod">
         <h3>What {selectedBody.englishName} has to offer:</h3>
         <p>Title: {apodData.title}</p>
