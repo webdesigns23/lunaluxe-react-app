@@ -18,13 +18,6 @@ export default function BodyInfo() {
   const [selectedBody, setSelectedBody] = useState(null);
   const [loading, setLoading] = useState(false);
   const [apodData, setApodData] = useState(null);
-
-  
-
-  //need to move to .env file!
-  // const VITE_NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
-  console.log(import.meta.env.VITE_NASA_API_KEY, "sting")
-
   
   useEffect(() => {    
     setLoading(true);

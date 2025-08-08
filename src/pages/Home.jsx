@@ -10,7 +10,7 @@ export default function Home() {
       <section className="about">
         <h2>About LunaLuxe</h2>
         <p>
-          LunaLuxe is a futuristic travel platform that lets you browse space destinations, check weather conditions, and plan expeditions across the galaxy.
+          LunaLuxe is your gateway to the stars—a next-generation travel platform designed for cosmic explorers. Discover our fleet of state-of-the-art vessels, explore enchanting interstellar destinations, and use our expedition planner to find the perfect journey tailored to your vacation time and passions.
         </p>
       </section>
     </>
