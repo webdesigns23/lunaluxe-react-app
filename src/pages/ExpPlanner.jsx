@@ -7,8 +7,7 @@ export default function ExpPlanner() {
     <>
       <h1>Expedition planner</h1>
       <p>Journey in to the unknown! Plan your next great adventure!</p>
-      <ChooseBody />
-      <ChooseVessel />       
+     
     </>
   );
 }
