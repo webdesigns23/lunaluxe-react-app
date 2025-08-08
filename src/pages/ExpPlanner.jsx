@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ChooseBody from "../components/ChooseBody";
 import ChooseVessel from "../components/ChooseVessel";
-import PlanetList from "../components/PlanetList";
+import PlanetGallery from "../components/PlanetGallery";
 
 export default function ExpPlanner() {
   const [planets, setPlanets] = useState([]);
@@ -29,7 +29,7 @@ export default function ExpPlanner() {
     <>
       <h1>Expedition planner</h1>
       <p>Journey in to the unknown! Plan your next great adventure!</p>
-      <PlanetList planets={planets}/>     
+      <PlanetGallery planets={planets}/>     
     </>
   );
 }
