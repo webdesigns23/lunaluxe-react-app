@@ -52,8 +52,7 @@ export default function BodyInfo() {
         <p>Gravity:{selectedBody.gravity} m/s²</p>
 
         {selectedBody.avgTemp > 0 && (
-        <p>
-          Temperature: 
+        <p>Temperature: 
           {((selectedBody.avgTemp - 273.15) * 9/5 + 32).toFixed(1)} Fahrenheit
         </p>
         )}

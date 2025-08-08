@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PlanetGallery from "../components/PlanetGallery";
 import ShipGallery from "../components/ShipGallery";
+import TripSummary from "../components/TripSummary";
 import "../styles/ExpPlanner.css"
 
 export default function ExpPlanner() {
@@ -57,8 +58,10 @@ export default function ExpPlanner() {
       <h2>Find your ideal vacationing destination</h2>
       <PlanetGallery planets={planets}/>   
 
-      <h2>Find your ideal transportation vessel!</h2> 
+      <h2>Find your ideal transportation vessel</h2> 
       <ShipGallery ships={ships} />
+
+      <TripSummary />
     </>
   );
 }

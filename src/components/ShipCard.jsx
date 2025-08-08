@@ -10,7 +10,7 @@ export default function ShipCard({ship}) {
 	  <h3>{ship.name}</h3>
 	  <p>Speed:{ship.max_atmosphering_speed} km/hr </p>
 
-	   <button className="travel-time-button" 
+	   <button className="travel-button" 
         onClick={() => setSelectedVessel(isSelected ? null : ship)} 
         aria-pressed={isSelected}>
         {isSelected ? "Destination Selected" : "Select"}

@@ -13,7 +13,7 @@ export default function PlanetCard({planet}) {
       <p>Moons: {planet.moons?.length || 0}</p>
       <p>Distance from Sun: {planet.semimajorAxis.toLocaleString()} km</p>
 
-      <button className="travel-time-button" 
+      <button className="travel-button" 
         onClick={() => setSelectedBody(isSelected ? null : planet)} 
         aria-pressed={isSelected}>
         {isSelected ? "Destination Selected" : "Select"}
