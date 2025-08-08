@@ -31,6 +31,8 @@ export default function ExpPlanner() {
     <>
       <h1>Expedition planner</h1>
       <p>Journey in to the unknown! Plan your next great adventure!</p>
+      <img src="src/assets/space_travel.jpg" />
+      <h2>Filter by temperature and gravity to find your planet</h2>
       <PlanetGallery planets={planets}/>     
     </>
   );
