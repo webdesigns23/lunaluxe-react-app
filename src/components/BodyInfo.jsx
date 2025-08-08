@@ -22,8 +22,8 @@ export default function BodyInfo() {
   
 
   //need to move to .env file!
-  const NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
-  
+  // const VITE_NASA_API_KEY = "67GRyg8nzIMcWaJqbGhfJyaFxxs2gGGbepdu1tgM"; 
+  console.log(import.meta.env.VITE_NASA_API_KEY, "sting")
 
   
   useEffect(() => {    
@@ -43,7 +43,7 @@ export default function BodyInfo() {
         });
 
       //fetch nasa APOD data
-      fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${apodDate}`)
+      fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_API_KEY}&date=${apodDate}`)
       .then((res) => res.json())
         .then((data) => {
           setApodData(data);
