@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ChooseBody from "../components/ChooseBody";
 import ChooseVessel from "../components/ChooseVessel";
 import PlanetGallery from "../components/PlanetGallery";
+import "../styles/ExpPlanner.css"
 
 export default function ExpPlanner() {
   const [planets, setPlanets] = useState([]);
