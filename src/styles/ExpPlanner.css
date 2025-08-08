@@ -31,3 +31,19 @@ h2 {
   border-radius: 16px;
   padding: 5px;
 }
+
+.travel-time-button {
+  color: rgb(32, 122, 134)
+}
+
+.details {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: rgb(234, 235, 234);
+  padding: 10px;
+}
+
+.details.selected {
+  border-color: #0e8f88;
+  background-color: #e6f0ff; 
+}
