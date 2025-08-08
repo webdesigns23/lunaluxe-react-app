@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function RadioButtons() {
+export default function RadioButtons({tempFilter, onChange}) {
 
 	return (
 	<>
@@ -9,24 +9,24 @@ export default function RadioButtons() {
 				type="radio"
 				name="filter-temp"
 				value="all"
-				checked={selected === "all"} 
-				onChange={(e) => onchange(e.target.value)} /> All
+				checked={tempFilter === "all"} 
+				onChange={(e) => onChange(e.target.value)} /> All
 		</label>
 		<label>
 			<input
 				type="radio"
 				name="filter-temp"
 				value="hot"
-				checked={selected === "hot"} 
-				onChange={(e) => onchange(e.target.value)} /> Hot
+				checked={tempFilter === "hot"} 
+				onChange={(e) => onChange(e.target.value)} /> Hot
 		</label>
 		<label>
 			<input
 				type="radio"
 				name="filter-temp"
 				value="cold"
-				checked={selected === "cold"}
-				onChange={(e) => onchange(e.target.value)} /> Cold
+				checked={tempFilter === "cold"}
+				onChange={(e) => onChange(e.target.value)} /> Cold
 		</label>
 	</>
   );
