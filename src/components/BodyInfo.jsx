@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
-import { TripContext } from "../components/TripContext"
+import { TripContext } from "../context/TripContext"
 
 //info for apod
 import destinations from "../data/destinations";

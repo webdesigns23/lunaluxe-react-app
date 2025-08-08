@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 //1. creat context-TripContext
 export const TripContext = createContext();

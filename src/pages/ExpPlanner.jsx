@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { TripContext } from "../components/TripContext";
+import { TripContext } from "../context/TripContext";
 
 export default function ExpPlanner() {
 
