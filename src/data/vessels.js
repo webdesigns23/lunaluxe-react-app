@@ -29,11 +29,13 @@ const vessels = [
   },
    {
     id: 22,
+    name: "Imperial Shuttle",
     image: "src/assets/vessels/imperial_shuttle.PNG",
     embedUrl: "https://sketchfab.com/3d-models/imperial-lambda-class-shuttle-ecd88edc4e5f42cc977c265316ed7015/embed",
   },
    {
     id: 58,
+    name: "Solar Sailer",
     image: "src/assets/vessels/solar_sailer.PNG",
     embedUrl: "https://sketchfab.com/3d-models/solar-sailer-573a4cd70b014e428036b2d803271187/embed",
   },

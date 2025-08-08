@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 import { TripContext } from "../context/TripContext"
-
-//info for apod
 import destinations from "../data/destinations";
 
 export default function BodyInfo() {
@@ -21,7 +19,6 @@ export default function BodyInfo() {
   
   useEffect(() => {    
     setLoading(true);
-
       //fetch body info based on id
       fetch(`https://api.le-systeme-solaire.net/rest/bodies/${id}`)
         .then(res => res.json())
@@ -44,9 +41,7 @@ export default function BodyInfo() {
         .catch((error) => {
           console.error("Error fetching NASA APOD", error);
         });
-  
   }, [id]);
-
 
   if (loading) return <p>Launching info...</p>;
   if (!selectedBody) return <p>No info found.</p>;
@@ -69,13 +64,9 @@ export default function BodyInfo() {
         <p>Orbital Litter: 
           {selectedBody.moons?.map(moon => moon.moon).join(', ') || 'None'}
         </p>
-        <p>
-          Average Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km
-        </p>
-        <p>
-          Average Distance from Earth: {
-          selectedBody.semimajorAxis ? Math.abs(Number(selectedBody.semimajorAxis) - 149598023) : "Unknown"} km
-        </p>
+        <p>Average Distance from Sun: {selectedBody.semimajorAxis.toLocaleString()} km</p>
+        <p>Average Distance from Earth: {
+          selectedBody.semimajorAxis ? Math.abs(Number(selectedBody.semimajorAxis) - 149598023) : "Unknown"} km</p>
        </section> 
 
        <section className="nasa-apod">
@@ -86,12 +77,10 @@ export default function BodyInfo() {
             <img
               src={apodData.url}
               alt={apodData.title}
-              style={{ maxWidth: "100%", borderRadius: "12px" }}
-            />
+              style={{ maxWidth: "100%", borderRadius: "12px" }}/>
         )}
         <p style={{ marginTop: "1rem" }}>{apodData.explanation}</p>
        </section>
     </div>
-    
   );
 }
