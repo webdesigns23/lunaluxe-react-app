@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function RadioButtons({tempFilter, onChange}) {
+export default function TempCheck({tempFilter, onChange}) {
 
 	return (
 	<>
+	<h3> Filter by Temperature: </h3>
 		<label>
 			<input
 				type="radio"
