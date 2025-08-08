@@ -8,16 +8,18 @@ export default function ChooseBody() {
  
   //Fetch Destinations
   useEffect(() => {
-    fetch("https://api.le-systeme-solaire.net/rest/bodies/")
-        .then(res => res.json())
-        .then(data => {
-          const planets = data.bodies.filter((body) => body.isPlanet);
-          setBodies(planets);
-        })
-        .catch(error => {
-          console.error("Error launching info", error);
-          
-        });
+    async function fetchBodyDetails(){
+      try{
+        const response = await fetch("https://api.le-systeme-solaire.net/rest/bodies/");
+        const data = await response.json();
+
+        const planets = data.bodies.filter((body) => body.isPlanet);
+        setBodies(planets);
+      } catch (error){
+        console.error("Error launching info", error)
+      }
+    };
+    fetchBodyDetails()
   }, []);
 
   //handle select destination

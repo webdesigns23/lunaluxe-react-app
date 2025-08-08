@@ -3,32 +3,31 @@ import { TripContext } from "../context/TripContext";
 
 export default function ChooseVessel() {
 
-  const {selectedVessel, setSelectedVessel} = useContext(TripContext);
-  const [ vessels, setVessels] = useState([])
+	const { selectedVessel, setSelectedVessel } = useContext(TripContext);
+	const [vessels, setVessels] = useState([])
 
-  //Fetch Vessels
-  useEffect(() => {
-	fetch("https://swapi.info/api/starships")
-	  .then(response => {
-		if(response.ok) {
-		  return response.json()
-		} else {
-		  console.log("fetch request failed")
-		}
-	  })
-	  .then((data) => {
-		const list = Array.isArray(data) ? data : (data?.results || []);
-		setVessels(list);
-	  })
-	  .catch((error) => console.error("Error launching space vessels", error));
-  }, []);
+	//Fetch Vessels
+	useEffect(() => {
+		async function fetchVesselDetails() {
+			try {
+				const response = await fetch("https://swapi.info/api/starships");
+				const data = await response.json();
 
-  //handle select vessel
-  function handleVSelect(event) {
-	const name = event.target.value;
-	const ship = vessels.find((v) => v.name == name || null);
-	setSelectedVessel(ship);
-  }
+				const list = Array.isArray(data) ? data : (data?.results || []);
+				setVessels(list);
+			} catch (error) {
+				console.error("Error launching space vessels", error)
+			}
+		};
+		fetchVesselDetails()
+	}, []);
+
+	//handle select vessel
+	function handleVSelect(event) {
+		const name = event.target.value;
+		const ship = vessels.find((v) => v.name == name || null);
+		setSelectedVessel(ship);
+	}
   
   return (
 	<>
