@@ -3,7 +3,7 @@ import React from "react";
 export default function PlanetCard({planet}) {
 
 	return (
-    <div className="planet-details">
+    <div className="details">
       <h3>{planet.englishName}</h3>
       <p>Gravity:{planet.gravity} m/s²</p>
       <p>Temperature: {planet.avgTemp} K</p>
