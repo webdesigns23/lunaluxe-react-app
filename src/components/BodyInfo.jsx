@@ -10,7 +10,6 @@ export default function BodyInfo() {
   const destination = destinations.find(d => d.id === id);
   const apodDate = destination.apodDate
 
-  //*modify to use useContext
   const { setSelectedBody: setBodyInContext } = useContext(TripContext);
 
   const [selectedBody, setSelectedBody] = useState(null);
