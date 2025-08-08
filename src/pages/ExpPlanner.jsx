@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ChooseBody from "../components/ChooseBody";
-import ChooseVessel from "../components/ChooseVessel";
+// import ChooseBody from "../components/ChooseBody";
+// import ChooseVessel from "../components/ChooseVessel";
 import PlanetGallery from "../components/PlanetGallery";
 import ShipGallery from "../components/ShipGallery";
 import "../styles/ExpPlanner.css"
@@ -33,9 +33,22 @@ export default function ExpPlanner() {
           const data = await response.json();
 
           const list = Array.isArray(data) ? data : (data?.results || []);
-          setShips(list);
+
+          const shipsAllowed = [
+            "Star Destroyer",
+            "Millennium Falcon",
+            "X-wing",
+            "TIE Advanced x1",
+            "Imperial shuttle",
+            "Solar Sailer"
+          ];
+
+          const filteredShips = list.filter(ship => shipsAllowed.includes(ship.name));
+          setShips(filteredShips);
         } catch (error) {
           console.error("Error launching space vessels", error)
+        } finally {
+          setLoading(false)
         }
       };
       fetchVesselDetails()
