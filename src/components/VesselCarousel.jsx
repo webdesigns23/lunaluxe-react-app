@@ -25,7 +25,7 @@ export default function VesselCarousel({onVesselSelect}) {
 		{vessels.map((v) => (
 		<div className="main-slide" key={v.id}>
 			<div className="inner-slide">
-				<h2 className="destination-name"> {v.name}</h2>
+				<h3 className="destination-name"> {v.name}</h3>
 				<img
               	className="card-image"
               	src={v.image}

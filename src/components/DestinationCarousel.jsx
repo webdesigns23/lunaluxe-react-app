@@ -27,7 +27,7 @@ export default function DestinationCarousel({onSelect}) {
 		{destinations.map((destination) => (
 		<div className="main-slide" key={destination.name}>
 			<div className="inner-slide">
-				<h2 className="destination-name"> {destination.name}</h2>
+				<h3 className="destination-name"> {destination.name}</h3>
 				<img
               	className="card-image"
               	src={destination.image}

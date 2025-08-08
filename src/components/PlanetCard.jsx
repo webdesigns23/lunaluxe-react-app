@@ -4,7 +4,7 @@ export default function PlanetCard({planet}) {
 
 	return (
     <div className="planet-details">
-      <h2>{planet.englishName}</h2>
+      <h3>{planet.englishName}</h3>
       <p>Gravity:{planet.gravity} m/s²</p>
       <p>Temperature: {planet.avgTemp} K</p>
       <p>Moons: {planet.moons?.length || 0}</p>
