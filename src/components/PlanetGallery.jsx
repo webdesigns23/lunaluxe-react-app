@@ -10,29 +10,27 @@ export default function PlanetGallery({planets}) {
 	
 	const filteredPlanets = planets.filter((planet) => {
 		//Temperature Filter
-		if (tempFilter === "all") return true;
-		if (tempFilter === "hot") return planet.avgTemp >= 200;
-		if (tempFilter === "cold") return planet.avgTemp < 200;
-		return true;
+		const tempParameters = tempFilter === "all" || 
+		(tempFilter === "hot" && planet.avgTemp >= 200) || 
+		(tempFilter === "cold" && planet.avgTemp < 200);
+	
 
 		//Gravity Filter
-		if (gravFilter === "all") return true;
-		if (gravFilter === "low") return planet.gravity < 5;
-		if (gravFilter === "low") return planet.gravity >= 5 && planet.gravity <= 15;
-		if (gravFilter === "low") return planet.gravity > 15;
+		const gravParameters = gravFilter === "all" || 
+		(gravFilter === "low" && planet.gravity < 5) || 
+		(gravFilter === "medium" && planet.gravity >= 5 && planet.gravity <= 15) || (gravFilter === "high" && planet.gravity > 15);
 		
+		return tempParameters && gravParameters;
 	});
-
-	
 
 	return (
     <>
-		<TempCheck 
-		tempFilter={tempFilter} 
-		onChange={setTempFilter}/>
-		<GravityCheck
-		gravFilter={gravFilter} 
-		onChange={setGravFilter}/>
+		<TempCheck tempFilter={tempFilter} onChange={setTempFilter}/>
+		<GravityCheck gravFilter={gravFilter} onChange={setGravFilter}/>
+
+		{filteredPlanets.length === 0 ? (
+			<p> No Planets fit that criteria.</p>
+		) : (
 
 		<div className="gallery">
       	{filteredPlanets.map((planet) => (
@@ -40,7 +38,8 @@ export default function PlanetGallery({planets}) {
 				<PlanetCard planet={planet}/>
 			</div>
 		))}	
-    	</div>     
+    	</div>   
+		)}  
     </>
   );
 }
