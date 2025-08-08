@@ -6,7 +6,7 @@ export default function PlanetGallery({planets}) {
 	return (
     <>
 		<div className="gallery">
-      	{planets.map(planet => (
+      	{planets.map((planet) => (
 			<div key={planet.id} className="gallery-item">
 				<img
 				key={planet.id}
@@ -14,11 +14,10 @@ export default function PlanetGallery({planets}) {
 				alt={planet.englishName}
 				className="planet-img"
 				/>	
+				<PlanetCard planet={planet}/>
 			</div>
 		))}	
-    	</div>  
-
-      	<PlanetCard planet={planet}/>     
+    	</div>     
     </>
   );
 }

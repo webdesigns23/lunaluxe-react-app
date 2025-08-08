@@ -16,6 +16,7 @@ export default function ExpPlanner() {
         setPlanets(data.bodies || []);
       } catch (error) {
         console.error("Error loading planets", error);
+      } finally {
         setLoading(false);
       }
     };

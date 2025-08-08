@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PlanetCard() {
+export default function PlanetCard({planet}) {
 
 	return (
     <div className="planet-details">
