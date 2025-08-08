@@ -11,30 +11,23 @@ export default function ExpPlanner() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPlanets(){
+    async function fetchExpData(){
       try {
-        const response = await fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true");
-        if (!response.ok) throw new Error("Failed to fetch info");
-        const data = await response.json();
-        setPlanets(data.bodies || []);
-      } catch (error) {
-        console.error("Error loading planets", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPlanets()
-  }, []);
+        const [planetsResponse, ShipsResponse] = await Promise.all([
+        fetch("https://api.le-systeme-solaire.net/rest.php/bodies?filter[]=isPlanet,eq,true"),
+        fetch("https://swapi.info/api/starships")
+        ])
 
-  useEffect(() => {
-    async function fetchVesselDetails() {
-        try {
-          const response = await fetch("https://swapi.info/api/starships");
-          const data = await response.json();
+        if (!planetsResponse.ok) throw new Error("Failed to fetch planets");
+        if (!ShipsResponse.ok) throw new Error("Failed to fetch ships");
 
-          const list = Array.isArray(data) ? data : (data?.results || []);
+        const planetsData = await planetsResponse.json();
+        const shipsData = await ShipsResponse.json();
 
-          const shipsAllowed = [
+        setPlanets(planetsData.bodies || []);
+
+        const list = Array.isArray(shipsData) ? shipsData : (shipsData?.results || []);
+        const shipsAllowed = [
             "Star Destroyer",
             "Millennium Falcon",
             "X-wing",
@@ -42,20 +35,19 @@ export default function ExpPlanner() {
             "Imperial shuttle",
             "Solar Sailer"
           ];
+        const filteredShips = list.filter(ship => shipsAllowed.includes(ship.name));
+        setShips(filteredShips);
 
-          const filteredShips = list.filter(ship => shipsAllowed.includes(ship.name));
-          setShips(filteredShips);
-        } catch (error) {
-          console.error("Error launching space vessels", error)
-        } finally {
-          setLoading(false)
-        }
-      };
-      fetchVesselDetails()
-  }, []);
+      } catch (error) {
+        console.error("Error loading expedition data", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchExpData()
+  }, []);     
 
   if (loading) return <p>Launching planets....</p>;
-
 
   return (
     <>
