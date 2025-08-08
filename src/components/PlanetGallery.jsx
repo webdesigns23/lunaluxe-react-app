@@ -28,7 +28,7 @@ export default function PlanetGallery({planets}) {
 		<TempCheck tempFilter={tempFilter} onChange={setTempFilter}/>
 		<GravityCheck gravFilter={gravFilter} onChange={setGravFilter}/>
 
-		{filteredPlanets.length === 0 ? (
+		{filteredPlanets.length === 0 ?(
 			<p> No Planets fit that criteria.</p>
 		) : (
 
