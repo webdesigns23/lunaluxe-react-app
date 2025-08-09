@@ -35,7 +35,7 @@ export default function DestinationCarousel({onSelect}) {
               	style={{ width: "90%", height: "400px", objectFit: "cover" }}
             	/>
 				<button className="explore-button" 
-				onClick={() => onSelect(destination.id)}>Expolore {destination.name}</button>
+				onClick={() => onSelect(destination.id)}>Explore {destination.name}</button>
 			</div>
 		</div>
 		))}
