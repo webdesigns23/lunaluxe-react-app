@@ -1,6 +1,35 @@
 #root {
-  max-width: 1280px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: rgb(241, 241, 239);
 }
+
+img {
+  max-width: 90%;
+}
+
+h2{
+  margin-top: 50px;
+  background-color: rgb(118, 211, 180);
+  border-style: groove;
+  border-color: goldenrod;
+}
+
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+
+h4 {
+  margin-top: 50px;
+  width:50%;
+  display: inline-block;  
+  background-color: rgb(235, 175, 232);
+  border: 2px groove goldenrod;
+  text-align: center;
+  margin: 0 auto;     
+  font-size: 20px;   
+}
+

@@ -19,6 +19,7 @@ export default function DestinationCarousel({onSelect}) {
     slidesToScroll: 1,
 	centerMode: true,
 	centerPadding: "28%",
+	
   };
 
 

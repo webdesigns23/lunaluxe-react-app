@@ -16,7 +16,8 @@ export default function VesselCarousel({onVesselSelect}) {
     slidesToShow: 1,
     slidesToScroll: 1,
 	centerMode: true,
-	centerPadding: "28%",
+	centerPadding: "28%"
+
   };
 
 

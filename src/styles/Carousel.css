@@ -1,47 +1,87 @@
-.main-slide {
-  display: flex !important;      
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+/* Target the dots list */
+.slick-dots li {
+  margin: 0 8px; /* more space between dots */
+}
+
+/* Dot buttons (default are small) */
+.slick-dots li button:before {
+  font-size: 16px;  /* default is 6px */
+  color: #000;      /* change color if you want */
+  opacity: 0.5;     /* less intense for inactive */
+}
+
+/* Active dot */
+.slick-dots li.slick-active button:before {
+  color: #d44fd0;   /* highlight color */
+  opacity: 1;
+  font-size: 20px;  /* make active even bigger */
+}
+
+ .card-image {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+ }
+
+.destination-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2px;   /* space between text and image */
+  margin-top: 55px;       /* space above name */
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+} 
+
+.carousel-container {
+  perspective: 1200px; /* depth for optional tilt */
+}
+
+.slick-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.7;
+}
+
+.slick-center {
+  transform: scale(1.2) rotateY(0deg);
+  opacity: 1;
+  z-index: 2;
+}
+
+.slick-slide:not(.slick-center) {
+  transform: scale(0.85);
+  z-index: 1;
+}
+
+.card-image {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .inner-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;  
-  background-color: #f0f0f0;
-  padding: 1rem;
-  border-radius: 12px;
-  height: 500px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  justify-content: flex-start;
+  padding-bottom: 75px; /* room for button above dots */
 }
 
-.card-image {
-  width: 100%;
-  height: 70%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
+/* Base luxury gold button */
 .explore-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  background-color: #2b2b2b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+  --gold1: #d4af37;   /* classic gold */
+  --gold2: #f6e27a;   /* highlight */
+  --gold3: #b88a1e;   /* shadow */
 
-.explore-button:hover {
-  background-color: #444;
+  display: inline-block;
+  padding: 2px 30px;
+  font-size: 15px;
+  color: #000000;                     
+  background: linear-gradient(135deg, var(--gold1), var(--gold2));
+  border: 2px ridge var(--gold3);
+  border-radius: 5px;
+  box-shadow: 0 6px 18px rgba(212,175,55,0.35),
+              inset 0 1px 0 rgba(255,255,255,0.4);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
 }
-
-.destination-name {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-

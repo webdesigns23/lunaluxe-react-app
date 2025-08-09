@@ -51,11 +51,13 @@ export default function ExpPlanner() {
 
   return (
     <>
+    
       <h1>Expedition planner</h1>
       <p>Journey in to the unknown! Plan your next great adventure!</p>
+      <a href="#choose-now">Choose Destination and Spaceship</a>
       <img src="src/assets/space_travel.jpg" />
 
-      <h2>Find your ideal vacationing destination</h2>
+      <h2 id="choose-now">Find your ideal vacationing destination</h2>
       <PlanetGallery planets={planets}/>   
 
       <h2>Find your ideal transportation vessel</h2> 

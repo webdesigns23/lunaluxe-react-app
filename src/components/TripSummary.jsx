@@ -15,18 +15,21 @@ export default function TripSummary() {
 	const travelTimeYrs = travelTimeDays / 365;
 
 	if (!selectedBody || !selectedVessel) return null;
+	if (selectedBody.englishName === "Earth") return <h1> You are Already Home!</h1>
 
 	return(
 		<div className="trip-summary">
 			<h2>Trip Summary</h2>
-			<p>Destination:{selectedBody?.englishName ?? "" }</p>
-			<p>SpaceShip:{selectedVessel?.name ?? ""}</p>
-			<p>Approximate Distance Away: 
-				{toEarthDistance ?? ""} km
-			</p>
-			<p>Estimated Travel Time: {travelTimeHrs ?? ""} hours</p>
-			<p>Estimated Travel Time: {travelTimeDays ?? ""} days</p>
-			<p>Estimated Travel Time: {travelTimeYrs ?? ""} years</p>
+			<h4>Destination:</h4>
+			<p>{selectedBody?.englishName ?? "" }</p>
+			<h4>Spaceship:</h4>
+			<p>{selectedVessel?.name ?? ""}</p>
+			<h4>Approximate Distance from Earth:</h4>
+			<p>{toEarthDistance ?? ""} km </p>
+			<h4>Estimated Travel Time:</h4>
+			<p> {travelTimeHrs ?? ""} hours</p>
+			<p>IN DAYS!: {travelTimeDays ?? ""} days</p>
+			<p>IN YEARS!!!: {travelTimeYrs ?? ""} years</p>
 
 		</div>
 	)

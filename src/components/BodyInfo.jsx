@@ -68,7 +68,7 @@ export default function BodyInfo() {
        </section> 
 
        <section className="nasa-apod">
-        <h3>What {selectedBody?.englishName} has to offer:</h3>
+        <h4>What {selectedBody?.englishName} has to offer:</h4>
         <p>Title: {apodData?.title}</p>
         <p>Date:{apodData?.date}</p>
         {apodData?.media_type === "image" && (

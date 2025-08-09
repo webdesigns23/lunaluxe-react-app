@@ -11,7 +11,6 @@ export default function PlanetCard({planet}) {
       <p>Gravity:{planet.gravity} m/s²</p>
       <p>Temperature: {planet.avgTemp} K</p>
       <p>Moons: {planet.moons?.length || 0}</p>
-      <p>Distance from Sun: {planet.semimajorAxis.toLocaleString()} km</p>
 
       <button className="travel-button" 
         onClick={() => setSelectedBody(isSelected ? null : planet)} 
