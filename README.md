@@ -4,8 +4,8 @@
 ## Overview
 LunaLuxe is your gateway to the stars—a next-generation travel platform designed for cosmic explorers. This application includes the following features:
 * Welcome page with a short about us description
-* A list of transportation vessels that we offer with dropdown for vessel stats
-* A list of destination planets that we travel too, along with a button for more information about destination.
+* A list of transportation vessels that we offer with a button for displaying vessel stats
+* A list of destination planets that we travel too, along with an "Expore" button for more information about destination.
 * An exploration planner page to filter through what each planet destination has to offer, see what vessel options work best for you and calculate your anticipated travel time base off of the selected destination and transportation vessel.
 
 # Tools Featured in this Project:
