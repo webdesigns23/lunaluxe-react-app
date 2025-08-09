@@ -7,7 +7,13 @@ export default function TripSummary() {
 		selectedVessel, setSelectedVessel
 		} = useContext(TripContext)
 
-	const toEarth = selectedBody?.semimajorAxis ? Math.abs(Number(selectedBody?.semimajorAxis) - 149598023) : "Unknown"
+	const toEarthDistance = selectedBody?.semimajorAxis ? Math.abs(Number(selectedBody?.semimajorAxis) - 149598023) : "Unknown"
+
+	const travelTimeHrs = toEarthDistance/(selectedVessel?.max_atmosphering_speed) 
+	console.log(`ship ${selectedVessel?.max_atmosphering_speed} and ${toEarthDistance}`)
+
+	const travelTimeDays = travelTimeHrs / 24
+	const travelTimeYrs = travelTimeDays / 365
 
 
 	return(
@@ -16,9 +22,11 @@ export default function TripSummary() {
 			<p>Destination:{`${selectedBody?.englishName}`}</p>
 			<p>SpaceShip:{`${selectedVessel?.name}`}</p>
 			<p>Approximate Distance Away: 
-				{`${toEarth}`} km
+				{`${toEarthDistance}`} km
 			</p>
-			<p>Estimated Travel Time: hours</p>
+			<p>Estimated Travel Time: {`${travelTimeHrs}`} hours</p>
+			<p>Estimated Travel Time: {`${travelTimeDays}`} days</p>
+			<p>Estimated Travel Time: {`${travelTimeYrs}`} years</p>
 
 		</div>
 	)
