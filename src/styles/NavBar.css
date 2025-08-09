@@ -1,7 +1,7 @@
 .navbar {
   background-color: #332c2c;
   padding: 2px;
-  margin: 10px;
+  margin: 5px;
   border-color: goldenrod;
   border-style: groove;
   font-size: 18px;
@@ -10,7 +10,7 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .nav-links a {

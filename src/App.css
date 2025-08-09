@@ -8,6 +8,9 @@
 
 img {
   max-width: 90%;
+  border: ridge;
+  border-color: goldenrod;
+  
 }
 
 h2{
