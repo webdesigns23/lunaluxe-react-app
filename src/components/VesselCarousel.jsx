@@ -10,6 +10,7 @@ export default function VesselCarousel({onVesselSelect}) {
 
 	const settings = {
     dots: true,
+	arrows:true,
 	infinite: true,
 	accessibility: true,
     speed: 500,

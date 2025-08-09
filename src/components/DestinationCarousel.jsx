@@ -12,6 +12,7 @@ export default function DestinationCarousel({onSelect}) {
 
 	const settings = {
     dots: true,
+	arrows: true,
 	infinite: true,
 	accessibility: true,
     speed: 500,

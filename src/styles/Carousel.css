@@ -1,20 +1,19 @@
 /* Target the dots list */
 .slick-dots li {
-  margin: 0 8px; /* more space between dots */
+  margin: 0 8px; 
 }
 
 /* Dot buttons (default are small) */
 .slick-dots li button:before {
-  font-size: 16px;  /* default is 6px */
-  color: #000;      /* change color if you want */
-  opacity: 0.5;     /* less intense for inactive */
+  font-size: 16px;  
+  color: #000;     
+  opacity: 0.5;    
 }
 
 /* Active dot */
 .slick-dots li.slick-active button:before {
-  color: #d44fd0;   /* highlight color */
   opacity: 1;
-  font-size: 20px;  /* make active even bigger */
+  font-size: 20px;  
 }
 
  .card-image {
@@ -28,15 +27,15 @@
 .destination-name {
   font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 2px;   /* space between text and image */
-  margin-top: 55px;       /* space above name */
+  margin-bottom: 2px;  
+  margin-top: 55px;       
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
 } 
 
 .carousel-container {
-  perspective: 1200px; /* depth for optional tilt */
+  perspective: 1200px; 
 }
 
 .slick-slide {
@@ -65,14 +64,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-bottom: 75px; /* room for button above dots */
+  padding-bottom: 75px; 
 }
 
 /* Base luxury gold button */
 .explore-button {
-  --gold1: #d4af37;   /* classic gold */
-  --gold2: #f6e27a;   /* highlight */
-  --gold3: #b88a1e;   /* shadow */
+  --gold1: #d4af37;   
+  --gold2: #f6e27a;   
+  --gold3: #b88a1e;  
 
   display: inline-block;
   padding: 2px 30px;
@@ -85,3 +84,4 @@
               inset 0 1px 0 rgba(255,255,255,0.4);
   transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
 }
+
