@@ -15,7 +15,10 @@ export default function TripSummary() {
 	const travelTimeYrs = travelTimeDays / 365;
 
 	if (!selectedBody || !selectedVessel) return null;
-	if (selectedBody.englishName === "Earth") return <h1> You are Already Home!</h1>
+	if (selectedBody.englishName === "Earth") 
+		return <img src="src/assets/earth_tour.PNG" 
+        style={{ width: "400px" }} 
+        alt="earth tourism poster"/>
 
 	return(
 		<div className="trip-summary">
