@@ -41,7 +41,7 @@ git clone <repo_url>
 cd <folder name>
 
 ```
-# Running Front-end of Application:
+# Running Application:
 To run the React application
 1. Install dependencies
 ```bash
